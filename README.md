@@ -163,22 +163,44 @@ Metode:
 
 ![image](ss/ss8.png)
 
-Tujuan: 
+**Tujuan Program**
 
-- Merupakan kelas utama yang digunakan untuk menjalankan aplikasi, membuat objek-objek yang diperlukan, dan menampilkan output sesuai dengan format yang diminta.
+Program ini bertujuan untuk:
 
+1. Membuat dan mengelola data pelanggan.
+2. Membuat daftar item yang dipesan beserta detail pesanan.
+3. Menghubungkan pesanan dengan berbagai metode pembayaran (Cash, Check, dan Credit).
+4. Menampilkan informasi secara terformat, mencakup:
+   - Informasi pelanggan.
+   - Detail pesanan (tanggal, status, item yang dipesan).
+   - Detail pembayaran.
+     
 Proses:
 
-- Membuat objek Customer untuk pelanggan bernama "fakhri afif" dengan alamat "Balikpapan".
+**Pembuatan Pelanggan:** Membuat objek Customer dengan nama "Fakhri Afif" dan alamat "Balikpapan".
 
-- Membuat objek Item untuk item yang dipesan, dalam hal ini adalah "Laptop & mouse".
+**Pembuatan Item:** Membuat dua objek Item:
 
-- Membuat objek Order yang mengaitkan item dengan tanggal pesanan dan status "Online".
+- Laptop (berat 2.50 kg).
+- Mouse (berat 1.20 kg).
+  
+**Detail Pesanan:** Membuat objek OrderDetail untuk memberikan informasi tambahan seperti Taxable dan Non-Taxable.
 
-- Membuat tiga objek pembayaran (Cash, Check, dan Credit) untuk mewakili pembayaran yang dilakukan oleh pelanggan.
+**Pengelolaan Pesanan:**
 
-- Menampilkan informasi yang diinginkan sesuai format yang diminta, seperti nama pelanggan, item yang dipesan, tanggal pesanan, status pesanan, dan detail pembayaran.
+- Membuat objek Order yang menyimpan informasi tanggal, status Online, dan daftar item.
+- Menambahkan item ke dalam pesanan.
+  
+**Pengelolaan Pembayaran:**
 
+- Membuat tiga metode pembayaran.
+- Cash: Membayar dengan tunai.
+- Check: Membayar dengan cek.
+- Credit: Membayar dengan kartu kredit.
+
+**Tampilan Informasi:**
+
+- Menampilkan nama pelanggan, detail pesanan (tanggal, status, item, total), dan metode pembayaran dalam format yang rapi.
 
 ### Output yang dihasilkan 
 ```
