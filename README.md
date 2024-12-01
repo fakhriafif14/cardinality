@@ -210,8 +210,33 @@ Proses:
 ```
 ![image](ss/ss10.png)
 
-### Kesimpulan
-- Struktur kelas yang digunakan di sini adalah contoh dasar penggunaan hubungan objek dan pewarisan dalam Java. Setiap kelas memiliki tanggung jawab tertentu, dan kelas turunan (Cash, Check, Credit) mengimplementasikan spesifik pembayaran yang diwarisi dari kelas Payment. Dengan cara ini, Anda dapat menangani berbagai jenis transaksi pembayaran dan mendesain aplikasi dengan lebih modular dan terstruktur.
+Output program mencerminkan informasi lengkap dari proses transaksi, yang meliputi:
+
+**Informasi Pelanggan:**
+
+- Nama pelanggan (Fakhri Afif) dan alamatnya (Balikpapan).
+
+**Detail Pesanan:**
+
+- Tanggal pesanan dibuat.
+- Status pesanan (Online).
+- Total biaya pesanan dihitung berdasarkan detail yang diberikan.
+  
+**Informasi Pembayaran:**
+
+- Pembayaran dilakukan dengan tiga metode:
+- Tunai (Cash): Jumlah uang tunai yang diserahkan (Rp 1500,00).
+- Cek (Check): Identitas bank terkait cek (***********987).
+- Kartu Kredit (Credit): Informasi kedaluwarsa kartu (2024-08-18).
+  
+### Kesimpulannya
+output ini menunjukkan data yang terstruktur mulai dari pelanggan, detail pesanan, hingga metode pembayaran, yang mencerminkan alur transaksi yang jelas dan terorganisir.
+
+
+
+
+
+
 
 
 # Selesai
