@@ -8,13 +8,13 @@
 
 ## Latihan
 
-![image](ss8/latihan.png)
+![image](ss/ss0.png)
 
 ## Penjelasan
 
 ### 1. Customer Class
 
-![image](ss8/customer.png)
+![image](ss/ss1.png)
 
 Fungsi Utama: Kelas ini merepresentasikan seorang pelanggan (Customer) yang memiliki nama dan alamat.
 
@@ -34,7 +34,7 @@ Metode:
 
 ### 2. Item Class
 
-![image](ss8/item.png)
+![image](ss/ss2.png)
 
 Fungsi Utama: Mewakili produk atau barang yang akan dibeli oleh pelanggan.
 
@@ -54,6 +54,7 @@ Metode:
  ``` Item item = new Item(2.5f, "Laptop");```
 
 ### 3. Order Class
+![image](ss/ss3.png)
 
 Fungsi Utama: Merepresentasikan pesanan pelanggan, termasuk detail pesanan, status, dan total harga.
 
@@ -75,6 +76,7 @@ Metode:
 ``` Order order = new Order(new Date(), "Pending", orderDetails);```
 
 ### 4. OrderDetail
+![image](ss/ss9.png)
 
 Fungsi Utama: Menyimpan detail dari setiap item dalam pesanan, seperti kuantitas dan status pajak.
 
@@ -94,7 +96,7 @@ Metode:
 
 ### 5. Payment (Abstract Class)
 
-![image](ss8/payment.png)
+![image](ss/ss4.png)
 
 Fungsi Utama: Menjadi dasar untuk semua jenis pembayaran, seperti Cash, Check, dan Credit.
 
@@ -109,7 +111,7 @@ Metode:
 
 ### 6. Cash Class
 
-![image](ss8/cash.png)
+![image](ss/ss5.png)
 
 Fungsi Utama: Merepresentasikan pembayaran menggunakan uang tunai, turunan dari Payment.
 
@@ -124,7 +126,7 @@ Metode:
 
 ### 7. Check Class
 
-![image](ss8/check.png)
+![image](ss/ss6.png)
 
 Fungsi Utama: Merepresentasikan pembayaran menggunakan cek, turunan dari Payment.
 
@@ -141,7 +143,7 @@ Metode:
 
 ### 9. Credit Class
 
-![image](ss8/credit.png)
+![image](ss/ss7.png)
 
 Fungsi Utama: Mewakili pembayaran menggunakan kartu kredit, sebagai turunan dari kelas abstrak Payment.
 
@@ -159,7 +161,7 @@ Metode:
 
 ### 10. Main Class
 
-![image](ss8/main.png)
+![image](ss/ss8.png)
 
 Tujuan: 
 
@@ -206,7 +208,7 @@ Proses:
 
 
 ```
-![image](ss8/output.png)
+![image](ss/ss10.png)
 
 ### Kesimpulan
 - Struktur kelas yang digunakan di sini adalah contoh dasar penggunaan hubungan objek dan pewarisan dalam Java. Setiap kelas memiliki tanggung jawab tertentu, dan kelas turunan (Cash, Check, Credit) mengimplementasikan spesifik pembayaran yang diwarisi dari kelas Payment. Dengan cara ini, Anda dapat menangani berbagai jenis transaksi pembayaran dan mendesain aplikasi dengan lebih modular dan terstruktur.
