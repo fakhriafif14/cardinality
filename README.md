@@ -16,124 +16,148 @@
 
 ![image](ss8/customer.png)
 
-Tujuan :
+Fungsi Utama: Kelas ini merepresentasikan seorang pelanggan (Customer) yang memiliki nama dan alamat.
 
-- Untuk menyimpan dan menampilkan data pelanggan, seperti nama dan alamat.
-
-Atribut :
-
+Atribut:
 - name: Menyimpan nama pelanggan.
-
 - address: Menyimpan alamat pelanggan.
-
+  
 Metode:
 
-- getName() dan getAddress() digunakan untuk mengambil nilai dari atribut name dan address.
+- Customer(String name, String address): Konstruktor untuk membuat objek Customer dengan nama dan alamat.
+- getName(): Mengembalikan nama pelanggan.
+- getAddress(): Mengembalikan alamat pelanggan.
 
-- toString(): Mengembalikan string yang mewakili informasi pelanggan dalam format yang diinginkan (Nama dan Alamat).
+- contoh penggunaan 
+  ```Customer customer = new Customer("Fakhri Afif", "Balikpapan");```
+
+
 ### 2. Item Class
 
 ![image](ss8/item.png)
 
-Tujuan:
-
-- Menyimpan dan menampilkan data item yang dipesan oleh pelanggan.
+Fungsi Utama: Mewakili produk atau barang yang akan dibeli oleh pelanggan.
 
 Atribut:
-
-- name: Menyimpan nama item (misalnya, "Laptop").
-
+- shippingWeight: Berat barang (digunakan untuk menghitung ongkir).
+- description: Deskripsi barang.
+  
 Metode:
 
-- getName(): Mengambil nama item.
+- Item(float shippingWeight, String description): Konstruktor untuk membuat item.
+- getShippingWeight(): Mengembalikan berat barang.
+- getDescription(): Mengembalikan deskripsi barang.
+- getPriceForQuantity(int quantity): Menghitung harga berdasarkan kuantitas barang.
+- inStock(): Mengecek apakah barang tersedia dalam stok (simulasi).
 
-- toString(): Mengembalikan string yang mewakili item, yaitu nama item yang dipesan.
+- contoh penggunaan 
+ ``` Item item = new Item(2.5f, "Laptop");```
 
 ### 3. Order Class
 
-![image](ss8/order.png)
-
-Tujuan:
-
-- Menyimpan informasi terkait pesanan yang dilakukan oleh pelanggan.
+Fungsi Utama: Merepresentasikan pesanan pelanggan, termasuk detail pesanan, status, dan total harga.
 
 Atribut:
 
-- item: Merujuk ke objek Item yang dipesan.
-
-- orderDate: Menyimpan tanggal pesanan dilakukan.
-
-- status: Menyimpan status pesanan (misalnya, "Online").
-
+- date: Tanggal pesanan dibuat.
+- status: Status pesanan (contoh: Pending, Completed).
+- orderDetails: Daftar detail pesanan.
+  
 Metode:
 
-- getItem(), getOrderDate(), dan getStatus(): Mengambil informasi item, tanggal pesanan, dan status pesanan.
+- Order(Date date, String status, List<OrderDetail> orderDetails): Konstruktor untuk membuat pesanan baru.
+- getDate(): Mengembalikan tanggal pesanan.
+- getStatus(): Mengembalikan status pesanan.
+- setStatus(String status): Mengubah status pesanan.
+- calcTotal(): Menghitung total harga dari semua item dalam pesanan.
+  
+- contoh penggunaan
+``` Order order = new Order(new Date(), "Pending", orderDetails);```
 
-- toString(): Mengembalikan string yang mewakili informasi pesanan, termasuk item yang dipesan, tanggal pesanan, dan status pesanan.
+### 4. OrderDetail
 
-### 4. Payment (Abstract Class)
+Fungsi Utama: Menyimpan detail dari setiap item dalam pesanan, seperti kuantitas dan status pajak.
+
+Atribut:
+
+- quantity: Jumlah item yang dipesan.
+- taxStatus: Status pajak (contoh: Taxable, Non-Taxable).
+  
+Metode:
+
+- OrderDetail(int quantity, String taxStatus): Konstruktor untuk membuat detail pesanan.
+- calcSubTotal(): Menghitung subtotal harga untuk kuantitas item.
+- calcWeight(Item item): Menghitung total berat dari semua item dalam pesanan.
+- calcTax(): Menghitung pajak dari subtotal.
+- contoh penggunaan ```OrderDetail orderDetail = new OrderDetail(2, "Taxable");```
+
+
+### 5. Payment (Abstract Class)
 
 ![image](ss8/payment.png)
 
-Tujuan:
-
-- Sebagai kelas abstrak yang mendefinisikan pembayaran umum. Kelas ini memiliki atribut amount yang digunakan oleh kelas turunannya (Cash, Check, Credit).
+Fungsi Utama: Menjadi dasar untuk semua jenis pembayaran, seperti Cash, Check, dan Credit.
 
 Atribut:
 
-- amount: Menyimpan jumlah uang yang dibayarkan.
-
+- amount: Jumlah uang yang dibayarkan.
+  
 Metode:
 
-- getAmount(): Mengambil jumlah pembayaran.
+- Payment(float amount): Konstruktor untuk inisialisasi pembayaran.
+- Catatan: Kelas ini tidak bisa dibuat objek langsung karena bersifat abstrak..
 
-- toString(): Mengembalikan representasi umum dari pembayaran.
-
-### 5. Cash Class
+### 6. Cash Class
 
 ![image](ss8/cash.png)
 
-Tujuan:
+Fungsi Utama: Merepresentasikan pembayaran menggunakan uang tunai, turunan dari Payment.
 
-- Merupakan turunan dari kelas Payment yang mengimplementasikan pembayaran dengan uang tunai.
+Atribut:
 
+- cashTendered: Jumlah uang tunai yang diberikan pelanggan.
 Metode:
 
-- toString(): Mengembalikan format pembayaran tunai dengan nilai jumlah uang yang dibayarkan.
+- Cash(float amount, float cashTendered): Konstruktor untuk membuat pembayaran tunai.
+- getCashTendered(): Mengembalikan jumlah uang tunai yang diterima.
+- contoh penggunaan ``` Cash cash = new Cash(1000.0f, 1500.0f);```
 
-### 6. Check Class
+### 7. Check Class
 
 ![image](ss8/check.png)
 
-Tujuan:
-
-- Merupakan turunan dari kelas Payment yang mengimplementasikan pembayaran dengan cek.
+Fungsi Utama: Merepresentasikan pembayaran menggunakan cek, turunan dari Payment.
 
 Atribut:
 
-- bankId: Menyimpan informasi Bank ID terkait dengan pembayaran cek.
-
+- name: Nama pelanggan.
+- bankID: ID bank pelanggan.
+  
 Metode:
 
-- toString(): Mengembalikan format pembayaran cek, dengan mencetak BankID terkait.
+- Check(float amount, String name, String bankID): Konstruktor untuk membuat pembayaran dengan cek.
+- getBankID(): Mengembalikan ID bank.
+- contoh penggunaan```Check check = new Check(1000.0f, "Fakhri", "***********987"); ```
 
-### 7. Credit Class
+### 9. Credit Class
 
 ![image](ss8/credit.png)
 
-Tujuan: 
-
-- Merupakan turunan dari kelas Payment yang mengimplementasikan pembayaran dengan kartu kredit.
+Fungsi Utama: Mewakili pembayaran menggunakan kartu kredit, sebagai turunan dari kelas abstrak Payment.
 
 Atribut:
 
-- expirationDate: Menyimpan tanggal kedaluwarsa kartu kredit.
-
+- number: Nomor kartu kredit.
+- type: Jenis kartu kredit (contoh: Visa, MasterCard).
+- expDate: Tanggal kedaluwarsa kartu kredit.
+  
 Metode:
 
-- toString(): Mengembalikan format pembayaran dengan kartu kredit yang mencetak tanggal kedaluwarsa.
+- Credit(float amount, String number, String type, String expDate): Konstruktor untuk membuat pembayaran dengan kartu kredit.
+- getExpDate(): Mengembalikan tanggal kedaluwarsa kartu kredit.
+- contoh penggunaan ``` Credit credit = new Credit(1000.0f, "1234567890123456", "Visa", "2024-08-18"); ```
 
-### 8. Main Class
+### 10. Main Class
 
 ![image](ss8/main.png)
 
@@ -143,9 +167,9 @@ Tujuan:
 
 Proses:
 
-- Membuat objek Customer untuk pelanggan bernama "Taufik" dengan alamat "Sukatani - Cikarang".
+- Membuat objek Customer untuk pelanggan bernama "fakhri afif" dengan alamat "Balikpapan".
 
-- Membuat objek Item untuk item yang dipesan, dalam hal ini adalah "Laptop".
+- Membuat objek Item untuk item yang dipesan, dalam hal ini adalah "Laptop & mouse".
 
 - Membuat objek Order yang mengaitkan item dengan tanggal pesanan dan status "Online".
 
@@ -156,20 +180,32 @@ Proses:
 
 ### Output yang dihasilkan 
 ```
-Customer
-Name: Taufik
-Alamat: Sukatani - Cikarang
+=====================================
+ CUSTOMER INFORMATION
+=====================================
+ Name    : Fakhri Afif
+ Address : Balikpapan
 
-Order
-Item: Laptop
-Date: 2024-11-29
-Status: Online
+=====================================
+ ORDER DETAILS
+=====================================
+ Date    : Sun Dec 01 00:00:00 UTC 2024
+ Status  : Online
+ Items   :
+   - Laptop (Weight: 2.50 kg)
+   - Mouse (Weight: 1.20 kg)
+ Total   : 200.00
 
-Payments
-Cash: 5100000.0
-BankID: ***********987
-Credit: expDate 2024-08-18
-````
+=====================================
+ PAYMENT INFORMATION
+=====================================
+ Cash    : 1500.00
+ Check ID: ***********987
+ Credit  : ExpDate 2024-08-18
+=====================================
+
+
+```
 ![image](ss8/output.png)
 
 ### Kesimpulan
